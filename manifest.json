@@ -1,0 +1,32 @@
+{
+  "name": "geekiT",
+  "description": "Extension to track questions done on GeeksForGeeks.com",
+  "version": "1.0",
+  "short_name": "geekiT",
+  "permissions": [
+    "activeTab",
+    "tabs"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["*://www.geeksforgeeks.org/*"],
+      "js": [ "js/jquery-1.11.1.js","js/main.js"],
+      "css":["css/style.css"],
+      "all_frames": true
+    }
+  ],
+  "web_accessible_resources": [
+    "js/popup.js",
+    "js/jquery-1.11.1.js",
+	"js/bootstrap.min.js",
+	"css/bootstrap.min.css",
+	"css/jquery-ui.css",
+	"js/jquery-ui.js"
+  ],
+  "browser_action": {
+      "default_popup": "popup.html",
+      "default_title": "GeeksForGeeks Tracker",
+      "default_icon": "images/icon.png"
+    },
+  "manifest_version": 2
+}
