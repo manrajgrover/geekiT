@@ -9,7 +9,11 @@ function remove(l) {
 }
 
 function add(l,t) {
-	var time= parseInt(new Date().getTime()/1000);
+	var x= new Date();
+	var year = x.getFullYear();
+	var month = x.getMonth();
+	var date = x.getDate();
+	var time = year + '-' + month + '-' + date + ' 0:00PM';
 	if(t==""){
 		t="GeeksForGeeks";
 	}
@@ -62,11 +66,11 @@ $(document).ready(function() {
 		var l=document.URL;
 		if (a.filter(function(p){return p.url == l}).length>0) {
 			var geeked='<div id="topfixed" class="done">DONE</div>';
-			var div = "<div id='ui'>geekiT?<input id='geekiT' name='geekiT' type='checkbox' checked='true' /></div>";		
+			var div = "<div id='ui'>geek<span style='color:red;'>iT</span>? <input id='geekiT' name='geekiT' type='checkbox' checked='true' /></div>";		
 		}
 		else {
 			var geeked='<div id="topfixed" class="notdone">NOT DONE</div>';
-			var div = "<div id='ui'>geekiT?<input id='geekiT' name='geekiT' type='checkbox'/></div>";		
+			var div = "<div id='ui'>geek<span style='color:red;'>iT</span>? <input id='geekiT' name='geekiT' type='checkbox'/></div>";		
 		}
 		$("body").append(geeked);
 		$("body").append(div);

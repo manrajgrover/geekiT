@@ -1,4 +1,13 @@
-.navbar .navbar-inner {
+body {
+        width: 600px;
+        height: 436px;
+		font-size:26px;
+    }
+#content{overflow-y:auto;height:400px;}
+#tabs{width:300px;}
+#links,#analyze{width:169px;height:50px;text-align:center;vertical-align:middle;cursor:pointer;}
+
+	.navbar .navbar-inner {
     padding: 0;
 }
 

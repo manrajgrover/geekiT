@@ -9,6 +9,7 @@
 	border-radius: 3px;
 	font-size: 20px;
 	cursor:pointer;
+	font-weight:900;
 	font-family: Open Sans, sans-serif;
 	width:100px;
 	border:1px solid black;
@@ -28,6 +29,7 @@
 	border:1px solid black;
 	width: 178px;
 	text-align: center;
+	font-weight:bold;
 	font-size: 28px;
 	right:42%;
 }

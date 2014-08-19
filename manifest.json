@@ -24,7 +24,9 @@
 	"js/bootstrap.min.js",
 	"css/bootstrap.min.css",
 	"css/jquery-ui.css",
-	"js/jquery-ui.js"
+	"js/jquery-ui.js",
+	"js/jquery.jqplot.js",
+	"js/jqplot.dateAxisRenderer.js"
   ],
   "browser_action": {
       "default_popup": "popup.html",
