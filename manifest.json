@@ -7,6 +7,9 @@
     "activeTab",
     "tabs"
   ],
+  "background": {
+    "scripts": ["js/background.js"]
+  },
   "content_scripts": [
     {
       "matches": ["*://www.geeksforgeeks.org/*"],

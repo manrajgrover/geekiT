@@ -57,10 +57,9 @@ $(document).ready(function() {
 			check();
 		});
 		var a =JSON.parse(localStorage.getItem('geekiT'));
+		var send= localStorage.getItem('geekiT');
 		console.log(a);
 		var l=document.URL;
-		console.log(l);
-		console.log(a.filter(function (p) { return p.url == l}));
 		if (a.filter(function(p){return p.url == l}).length>0) {
 			var geeked='<div id="topfixed" class="done">DONE</div>';
 			var div = "<div id='ui'>geekiT?<input id='geekiT' name='geekiT' type='checkbox' checked='true' /></div>";		
@@ -72,13 +71,5 @@ $(document).ready(function() {
 		$("body").append(geeked);
 		$("body").append(div);
 		cut();
-		chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-			console.log("chrome running..");
-			if (request.method == "getLocalStorage"){
-				console.log("sending data...");
-				sendResponse({data: localStorage[request.key]});
-			}
-			else
-				sendResponse({});
-		});
+		chrome.runtime.sendMessage({method:"setStorage", newData:send});
 });
