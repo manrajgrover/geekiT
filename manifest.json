@@ -1,6 +1,6 @@
 {
   "name": "geekiT",
-  "description": "Extension to track questions done on GeeksForGeeks.com",
+  "description": "Extension to track questions done on GeeksForGeeks.com,bookmark doubts and check progress.",
   "version": "1.0",
   "short_name": "geekiT",
   "permissions": [
