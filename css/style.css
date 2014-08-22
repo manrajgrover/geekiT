@@ -1,7 +1,22 @@
-#ui {
+#geekbox{
 	padding: 5px 10px;
 	height:auto;
 	position:fixed;
+    top:30%; 
+	right:0%;
+	z-index:9999;
+	color: black;
+	border-radius: 3px;
+	font-size: 20px;
+	cursor:pointer;
+	font-weight:900;
+	font-family: Open Sans, sans-serif;
+	width:146px;
+	border:1px solid black;
+}
+.ui {
+	padding: 5px 10px;
+	height:auto;
     top:30%; 
 	right:0%;
 	z-index:9999;

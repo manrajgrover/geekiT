@@ -1,12 +1,12 @@
 body {
-        width: 600px;
+        width: 700px;
         height: 436px;
 		font-size:26px;
     }
 #content{overflow-y:auto;height:400px;}
 #tabs{width:300px;}
-#links,#analyze{width:169px;height:50px;text-align:center;vertical-align:middle;cursor:pointer;}
-
+#links,#bookmark,#analyze{width:169px;height:50px;text-align:center;vertical-align:middle;cursor:pointer;}
+#analytics{margin-left:30px;margin-right:30px;}
 	.navbar .navbar-inner {
     padding: 0;
 }

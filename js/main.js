@@ -4,65 +4,114 @@ function remove(l) {
 		var removed = jQuery.grep(a, function(p) {return p.url!== l;});
 		localStorage.setItem('geekiT', JSON.stringify(removed));
 	}
-	location.reload();
-	console.log(localStorage.getItem('geekiT'));	
+	chrome.runtime.sendMessage({method:"setStorage", newData:localStorage.getItem('geekiT')});
 }
 
 function add(l,t) {
 	var x= new Date();
 	var year = x.getFullYear();
-	var month = x.getMonth();
+	var month = x.getMonth()+1;
 	var date = x.getDate();
 	var time = year + '-' + month + '-' + date + ' 0:00PM';
 	if(t==""){
 		t="GeeksForGeeks";
 	}
 	var a =JSON.parse(localStorage.getItem('geekiT'));
-	console.log(a);
 	if (a.filter(function (p) { return p.url == l}).length==0){
 		a.push({url: l,title: t,stamp: time});
 	}
-	else{
-		console.log("it was equal to 0");
-	}
 	localStorage.setItem('geekiT', JSON.stringify(a));
-	console.log(localStorage.getItem('geekiT'));
+	chrome.runtime.sendMessage({method:"setStorage", newData:localStorage.getItem('geekiT')});
 }
 function check(){
+	var tp=$('#topfixed');
 	if ($('#geekiT').prop('checked')){
-		console.log(document.URL+' '+ $(document).find("title").text());
+		tp.removeClass('notdone');
+		tp.addClass('done');
+		tp.text('DONE');
 		add(document.URL,$(document).find("title").text());
-		console.log('checked');
 	}
 	else{
-		console.log(document.URL+' '+ document.title);
+		tp.removeClass('done');
+		tp.addClass('notdone');
+		tp.text('NOT DONE');
 		remove(document.URL);
-		console.log('unchecked');
 	}
 }
+
+function removeBookmark(l) {
+	var a = JSON.parse(localStorage.getItem('bookmark'));
+	if(a.filter(function(p){return p.url == l}).length>0){
+		var removed = jQuery.grep(a, function(p) {return p.url!== l;});
+		localStorage.setItem('bookmark', JSON.stringify(removed));
+	}
+	chrome.runtime.sendMessage({method:"setBookmark", newData:localStorage.getItem('bookmark')});
+}
+
+function addBookmark(l,t) {
+	var x= new Date();
+	var year = x.getFullYear();
+	var month = x.getMonth()+1;
+	var date = x.getDate();
+	var time = year + '-' + month + '-' + date + ' 0:00PM';
+	if(t==""){
+		t="GeeksForGeeks";
+	}
+	var a =JSON.parse(localStorage.getItem('bookmark'));
+	if (a.filter(function (p) { return p.url == l}).length==0){
+		a.push({url: l,title: t,stamp: time});
+	}
+	localStorage.setItem('bookmark', JSON.stringify(a));
+	chrome.runtime.sendMessage({method:"setBookmark", newData:localStorage.getItem('bookmark')});
+}
+
+function bm(){
+	if ($('#bk').prop('checked')){
+		addBookmark(document.URL,$(document).find("title").text());
+	}
+	else{
+		removeBookmark(document.URL);
+	}
+}
+
+
+
 function cut() {
 	var a= JSON.parse(localStorage["geekiT"]);
-	$(".page-content a").each(function() {
+	$(".page-content a,#post a").each(function() {
 		var link=this.href;
 		if(a.filter(function(p){return p.url == link}).length>0){
 			$(this).css("text-decoration","line-through");
 		}
 	});
 }
+function bkit() {
+	var a= JSON.parse(localStorage["bookmark"]);
+	$(".page-content a,#post a").each(function() {
+		var link=this.href;
+		if(a.filter(function(p){return p.url == link}).length>0){
+			$(this).css("color","#cc0000");
+		}
+	});
+}
+
 $(document).ready(function() {
-        console.log("Its working!!!!");
 		if (typeof localStorage['geekiT'] == 'undefined') {
 			var list = [];
-			console.log("creating storage");
 			localStorage.setItem('geekiT', JSON.stringify(list));
 		}
+		if (typeof localStorage['bookmark'] == 'undefined') {
+			var list = [];
+			localStorage.setItem('bookmark', JSON.stringify(list));
+		}
 		$(document).on('click','#geekiT',function(){
-			console.log('dude yo');
 			check();
+		});
+		$(document).on('click','#bk',function(){
+			bm();
 		});
 		var a =JSON.parse(localStorage.getItem('geekiT'));
 		var send= localStorage.getItem('geekiT');
-		console.log(a);
 		var l=document.URL;
 		if (a.filter(function(p){return p.url == l}).length>0) {
 			var geeked='<div id="topfixed" class="done">DONE</div>';
@@ -72,8 +121,22 @@ $(document).ready(function() {
 			var geeked='<div id="topfixed" class="notdone">NOT DONE</div>';
 			var div = "<div id='ui'>geek<span style='color:red;'>iT</span>? <input id='geekiT' name='geekiT' type='checkbox'/></div>";		
 		}
+		var a =JSON.parse(localStorage.getItem('bookmark'));
+		var bookmark= localStorage.getItem('bookmark');
+		var l=document.URL;
+		if (a.filter(function(p){return p.url == l}).length>0) {
+			var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span>? <input id='bk' name='bk' type='checkbox' checked='true' /></div>";		
+		}
+		else {
+			var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span>? <input id='bk' name='bk' type='checkbox'/></div>";		
+		}
 		$("body").append(geeked);
-		$("body").append(div);
+		$("body").append("<div id='geekbox'></div>");
+		$("#geekbox").append(div);
+		$("#geekbox").append(bk);
 		cut();
+		bkit();
 		chrome.runtime.sendMessage({method:"setStorage", newData:send});
+		var bookmark= localStorage.getItem('bookmark');
+		chrome.runtime.sendMessage({method:"setBookmark", newData:bookmark});
 });
