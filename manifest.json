@@ -12,7 +12,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://www.geeksforgeeks.org/*"],
+      "matches": ["*://geeksquiz.com/*","*://www.geeksforgeeks.org/*"],
       "js": [ "js/jquery-1.11.1.js","js/main.js"],
       "css":["css/style.css"],
       "all_frames": true
