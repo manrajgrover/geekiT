@@ -146,10 +146,16 @@ $(document).ready(function() {
     $(document).on('click', '#bk', function() {
         bm();
     });
+	
     var a = JSON.parse(localStorage.getItem('geekiT'));
     var send = localStorage.getItem('geekiT');
     var l = document.URL;
-	if (l != "http://www.geeksforgeeks.org/" && l != "https://www.geeksforgeeks.org/") 
+	var pat1 = "http://www.geeksforgeeks.org/";
+	var pat2 = "http://www.geeksforgeeks.org/page/";
+	var pat3 = "https://www.geeksforgeeks.org/";
+	var pat4 = "https://www.geeksforgeeks.org/page/";
+
+	if ( !(l == pat1) && !(l == pat3) && !(l.search(pat2) >= 0) && !(l.search(pat4) >= 0)) 
 	{
 		if (a.filter(function(p) {
 			return p.url == l
@@ -170,6 +176,7 @@ $(document).ready(function() {
 		} else {
 			var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span>? <input id='bk' name='bk' type='checkbox'/></div>";
 		}
+		
 		$("body").append(geeked);
 		$("body").append("<div id='geekbox'></div>");
 		$("#geekbox").append(div);
