@@ -1,8 +1,8 @@
 function remove(l) {
     var a = JSON.parse(localStorage.getItem('geekiT'));
     if (a.filter(function(p) {
-        return p.url == l
-    }).length > 0) {
+            return p.url == l
+        }).length > 0) {
         var removed = jQuery.grep(a, function(p) {
             return p.url !== l;
         });
@@ -25,8 +25,8 @@ function add(l, t) {
     }
     var a = JSON.parse(localStorage.getItem('geekiT'));
     if (a.filter(function(p) {
-        return p.url == l
-    }).length == 0) {
+            return p.url == l
+        }).length == 0) {
         a.push({
             url: l,
             title: t,
@@ -58,8 +58,8 @@ function check() {
 function removeBookmark(l) {
     var a = JSON.parse(localStorage.getItem('bookmark'));
     if (a.filter(function(p) {
-        return p.url == l
-    }).length > 0) {
+            return p.url == l
+        }).length > 0) {
         var removed = jQuery.grep(a, function(p) {
             return p.url !== l;
         });
@@ -82,8 +82,8 @@ function addBookmark(l, t) {
     }
     var a = JSON.parse(localStorage.getItem('bookmark'));
     if (a.filter(function(p) {
-        return p.url == l
-    }).length == 0) {
+            return p.url == l
+        }).length == 0) {
         a.push({
             url: l,
             title: t,
@@ -112,8 +112,8 @@ function cut() {
     $(".page-content a,#post a").each(function() {
         var link = this.href;
         if (a.filter(function(p) {
-            return p.url == link
-        }).length > 0) {
+                return p.url == link
+            }).length > 0) {
             $(this).css("text-decoration", "line-through");
         }
     });
@@ -124,8 +124,8 @@ function bkit() {
     $(".page-content a,#post a").each(function() {
         var link = this.href;
         if (a.filter(function(p) {
-            return p.url == link
-        }).length > 0) {
+                return p.url == link
+            }).length > 0) {
             $(this).css("color", "#cc0000");
         }
     });
@@ -146,42 +146,41 @@ $(document).ready(function() {
     $(document).on('click', '#bk', function() {
         bm();
     });
-	
+
     var a = JSON.parse(localStorage.getItem('geekiT'));
     var send = localStorage.getItem('geekiT');
     var l = document.URL;
-	var pat1 = "http://www.geeksforgeeks.org/";
-	var pat2 = "http://www.geeksforgeeks.org/page/";
-	var pat3 = "https://www.geeksforgeeks.org/";
-	var pat4 = "https://www.geeksforgeeks.org/page/";
+    var pat1 = "http://www.geeksforgeeks.org/";
+    var pat2 = "http://www.geeksforgeeks.org/page/";
+    var pat3 = "https://www.geeksforgeeks.org/";
+    var pat4 = "https://www.geeksforgeeks.org/page/";
 
-	if ( !(l == pat1) && !(l == pat3) && !(l.search(pat2) >= 0) && !(l.search(pat4) >= 0)) 
-	{
-		if (a.filter(function(p) {
-			return p.url == l
-		}).length > 0) {
-			var geeked = '<div id="topfixed" class="done">DONE</div>';
-			var div = "<div id='ui'>geek<span style='color:red;'>iT</span>? <input id='geekiT' name='geekiT' type='checkbox' checked='true' /></div>";
-		} else {
-			var geeked = '<div id="topfixed" class="notdone">NOT DONE</div>';
-			var div = "<div id='ui'>geek<span style='color:red;'>iT</span>? <input id='geekiT' name='geekiT' type='checkbox'/></div>";
-		}
-		var a = JSON.parse(localStorage.getItem('bookmark'));
-		var bookmark = localStorage.getItem('bookmark');
-		var l = document.URL;
-		if (a.filter(function(p) {
-			return p.url == l
-		}).length > 0) {
-			var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span>? <input id='bk' name='bk' type='checkbox' checked='true' /></div>";
-		} else {
-			var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span>? <input id='bk' name='bk' type='checkbox'/></div>";
-		}
-		
-		$("body").append(geeked);
-		$("body").append("<div id='geekbox'></div>");
-		$("#geekbox").append(div);
-		$("#geekbox").append(bk);
-	}
+    if (!(l == pat1) && !(l == pat3) && !(l.search(pat2) >= 0) && !(l.search(pat4) >= 0)) {
+        if (a.filter(function(p) {
+                return p.url == l
+            }).length > 0) {
+            var geeked = '<div id="topfixed" class="done">DONE</div>';
+            var div = "<div id='ui'>geek<span style='color:red;'>iT</span>? <input id='geekiT' name='geekiT' type='checkbox' checked='true' /></div>";
+        } else {
+            var geeked = '<div id="topfixed" class="notdone">NOT DONE</div>';
+            var div = "<div id='ui'>geek<span style='color:red;'>iT</span>? <input id='geekiT' name='geekiT' type='checkbox'/></div>";
+        }
+        var a = JSON.parse(localStorage.getItem('bookmark'));
+        var bookmark = localStorage.getItem('bookmark');
+        var l = document.URL;
+        if (a.filter(function(p) {
+                return p.url == l
+            }).length > 0) {
+            var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span>? <input id='bk' name='bk' type='checkbox' checked='true' /></div>";
+        } else {
+            var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span>? <input id='bk' name='bk' type='checkbox'/></div>";
+        }
+
+        $("body").append(geeked);
+        $("body").append("<div id='geekbox'></div>");
+        $("#geekbox").append(div);
+        $("#geekbox").append(bk);
+    }
     cut();
     bkit();
     chrome.runtime.sendMessage({
