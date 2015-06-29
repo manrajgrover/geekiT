@@ -109,7 +109,7 @@ function bm() {
 
 function cut() {
     var a = JSON.parse(localStorage["geekiT"]);
-    $(".page-content a,#post a").each(function() {
+    $(".site-content a,#post a").each(function() {
         var link = this.href;
         if (a.filter(function(p) {
                 return p.url == link
@@ -121,12 +121,13 @@ function cut() {
 
 function bkit() {
     var a = JSON.parse(localStorage["bookmark"]);
-    $(".page-content a,#post a").each(function() {
+    $(".site-content a,#post a").each(function() {
         var link = this.href;
         if (a.filter(function(p) {
                 return p.url == link
             }).length > 0) {
-            $(this).css("color", "#cc0000");
+            $(this).css("color", "#FF0000");
+            $(this).css("font-weight", "bold");
         }
     });
 }

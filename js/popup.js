@@ -14,8 +14,10 @@ $(document).ready(function() {
     for (var i = a.length - 1; i >= 0; i--) {
         var time = a[i]['stamp'];
         time = time.substring(0, time.length - 7);
+        time = time.split("-");
+        var final_time = time[2]+"-"+time[1]+"-"+time[0];
         p++;
-        d += "<tr><td>" + p + "</td><td><a href='" + a[i]['url'] + "' target='_blank'>" + a[i]['title'] + "</a></td><td style='width:150px;'>" + time + "</td></tr>";
+        d += "<tr><td>" + p + "</td><td><a href='" + a[i]['url'] + "' target='_blank'>" + a[i]['title'] + "</a></td><td style='width:150px;'>" + final_time + "</td></tr>";
     }
     d += "</tbody></table>";
     $("#content").html(d);
@@ -29,8 +31,10 @@ $(document).ready(function() {
     for (var i = a.length - 1; i >= 0; i--) {
         var time = a[i]['stamp'];
         time = time.substring(0, time.length - 7);
+        time = time.split("-");
+        var final_time = time[2]+"-"+time[1]+"-"+time[0];
         p++;
-        d += "<tr><td>" + p + "</td><td><a href='" + a[i]['url'] + "' target='_blank'>" + a[i]['title'] + "</a></td><td style='width:150px;'>" + time + "</td></tr>";
+        d += "<tr><td>" + p + "</td><td><a href='" + a[i]['url'] + "' target='_blank'>" + a[i]['title'] + "</a></td><td style='width:150px;'>" + final_time + "</td></tr>";
     }
     d += "</tbody></table>";
     $("#bookmarked").html(d);
