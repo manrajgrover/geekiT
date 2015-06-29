@@ -126,7 +126,7 @@ function bkit() {
         if (a.filter(function(p) {
                 return p.url == link
             }).length > 0) {
-            $(this).css("color", "#FF0000");
+            $(this).css("color", "#CC0000");
             $(this).css("font-weight", "bold");
         }
     });
