@@ -6,6 +6,8 @@ Google Chrome extension to mark problems solved on GeeksForGeeks.org so as to fo
 Try it!
 https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin
 
+![Logo](https://github.com/ManrajGrover/geekiT/blob/master/assets/logo.png)
+
 ##To Do:
 1. Combine storage of GeekQuiz and GeeksForGeeks.
 2. Develop settings menu to change color,position and user experience.
