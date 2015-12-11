@@ -114,6 +114,7 @@ function cut() {
         if (a.filter(function(p) {
                 return p.url == link
             }).length > 0) {
+            $(this).css("color", "#006600");
             $(this).css("text-decoration", "line-through");
         }
     });
@@ -181,6 +182,8 @@ $(document).ready(function() {
         $("body").append("<div id='geekbox'></div>");
         $("#geekbox").append(div);
         $("#geekbox").append(bk);
+        $("#geekiT").show();
+        $("#bk").show();
     }
     cut();
     bkit();

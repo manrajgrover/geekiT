@@ -1,11 +1,11 @@
-body { width: 700px; height: 400px; font-size:26px; }
+body { width: 700px;font-size:26px; }
 .navbar .navbar-inner { padding: 0; } 
 .navbar .nav { margin: 0; display: table; width: 100%; } 
 .navbar .nav li { display: table-cell; width: 15%; float: none; } 
 .navbar .nav li a { font-weight: bold; text-align: center; border-left: 1px solid rgba(255, 255, 255, .75); border-right: 1px solid rgba(0, 0, 0, .1); } 
 .navbar .nav li:first-child a { border-left: 0; border-radius: 3px 0 0 3px; } 
 .navbar .nav li:last-child a { border-right: 0; border-radius: 0 3px 3px 0; }
-#content,#bookmarked{overflow-y:auto;height:400px;}
+#content,#bookmarked{overflow-y:auto;}
 #tabs{width:300px;}
 #links,#bookmark,#analyze{width:169px;height:50px;text-align:center;vertical-align:middle;cursor:pointer;}
 #analytics{margin-left:30px;margin-right:30px;} 

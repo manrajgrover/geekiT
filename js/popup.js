@@ -1,3 +1,9 @@
+function parseDate(input) {
+  var dateAndTime = input.split(' ');
+  var parts = dateAndTime[0].split('-');
+  return Date.UTC(parts[0], parts[1]-1, parts[2]);
+}
+
 $(document).ready(function() {
     $("#links").css("color", "black");
     $("#analyze").css("color", "lightgrey");
@@ -66,25 +72,41 @@ $(document).on("click", "#analyze", function() {
     }
     var arr = [];
     for (var prop in count) {
-        arr.push([prop, count[prop]]);
+        arr.push([parseDate(prop), count[prop]]);
     }
-    var plot1 = $.jqplot('analytics', [arr], {
-        title: 'Your Progress',
-        axes: {
-            xaxis: {
-                renderer: $.jqplot.DateAxisRenderer,
-                tickOptions: {
-                    formatString: '%#d %b'
-                }
-            }
+    $('#analytics').highcharts({
+        chart: {
+            zoomType: 'x'
         },
-        min: arr[0][0],
-        max: arr[arr[0].length - 1][arr[0].length - 1],
+        title: {
+            text: 'Your Progress',
+            x: -20
+        },
+        xAxis: {
+            type: 'datetime'
+        },
+        yAxis: {
+            title: {
+                text: 'Questions solved'
+            },
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+        },
+        tooltip: {
+            valueSuffix: ' Questions'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
         series: [{
-            lineWidth: 4,
-            markerOptions: {
-                style: 'square'
-            }
+            name: 'Progress',
+            data: arr
         }]
     });
 });
