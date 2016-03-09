@@ -2,5 +2,5 @@
 .notdone{ background:red; } 
 .done{ background:green; }
 .ui { padding: 5px 10px; height:auto; top:30%; right:0%; z-index:9999; color: black; border-radius: 3px; font-size: 20px; cursor:pointer; font-weight:900; font-family: Open Sans, sans-serif; width:100px; border:1px solid black; } 
-#geekbox{ padding: 5px 10px; height:auto; position:fixed; top:30%; right:0%; z-index:9999; color: black; border-radius: 3px; font-size: 20px; cursor:pointer; font-weight:900; font-family: Open Sans, sans-serif; width: 145px; border:1px solid black; } 
+#geekbox{ padding: 5px 10px; height:auto; position:fixed; top:30%; right:0%; z-index:9999; color: black; border-radius: 3px; font-size: 20px; cursor:pointer; font-weight:900; font-family: Open Sans, sans-serif; width: 150px; border:1px solid black; } 
 #topfixed{ padding: 5px 10px; height: auto; position: fixed; top: 0%; z-index: 9999; color: white; border-radius: 3px; font-size: 20px; font-family: Open Sans, sans-serif; width:100px; border:1px solid black; width: 178px; text-align: center; font-weight:bold; font-size: 28px; right:42%; } 
