@@ -1,9 +1,24 @@
+/*
+* @Author: Manraj Singh
+* @Date:   2016-03-25 18:37:53
+* @Last Modified by:   Manraj Singh
+* @Last Modified time: 2016-03-25 18:41:56
+*/
+
+/**
+ * [parseDate returns date in UTC format]
+ * @param  {[String]} input [Time String]
+ * @return {[Object]}       [Date Object]
+ */
 function parseDate(input) {
   var dateAndTime = input.split(' ');
   var parts = dateAndTime[0].split('-');
   return Date.UTC(parts[0], parts[1]-1, parts[2]);
 }
 
+/**
+ * Initializes popup on browser popup click.
+ */
 $(document).ready(function() {
     $("#links").css("color", "black");
     $("#analyze, #bookmark").css("color", "lightgrey");
@@ -41,6 +56,10 @@ $(document).ready(function() {
     innerhtml += "</tbody></table>";
     $("#bookmarked").html(innerhtml);
 });
+
+/**
+ * Event listeners for all tabs and manipulations
+ */
 $(document).on("click", "#links", function() {
     $("#links").css("color", "black");
     $("#analyze, #bookmark").css("color", "lightgrey");
