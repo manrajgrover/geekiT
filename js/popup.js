@@ -17,8 +17,7 @@ $(document).ready(function() {
     var innerhtml = "<table class='table'><thead><tr><th>#</th><th>Title</th><th>Date</th></tr></thead><tbody>";
     for (var i = a.length - 1; i >= 0; i--) {
         var time = a[i]['stamp'];
-        time = time.substring(0, time.length - 7);
-        time = time.split("-");
+        time = time.substring(0, time.length - 7).split("-");
         var final_time = time[2]+"-"+time[1]+"-"+time[0];
         it++;
         innerhtml += "<tr><td>" + it + "</td><td><a href='" + a[i]['url'] + "' target='_blank'>" + a[i]['title'] + "</a></td><td style='width:150px;'>" + final_time + "</td></tr>";
@@ -34,8 +33,7 @@ $(document).ready(function() {
     var innerhtml = "<table class='table'><thead><tr><th>#</th><th>Title</th><th>Date</th></tr></thead><tbody>";
     for (var i = a.length - 1; i >= 0; i--) {
         var time = a[i]['stamp'];
-        time = time.substring(0, time.length - 7);
-        time = time.split("-");
+        time = time.substring(0, time.length - 7).split("-");
         var final_time = time[2]+"-"+time[1]+"-"+time[0];
         it++;
         innerhtml += "<tr><td>" + it + "</td><td><a href='" + a[i]['url'] + "' target='_blank'>" + a[i]['title'] + "</a></td><td style='width:150px;'>" + final_time + "</td></tr>";
