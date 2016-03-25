@@ -6,59 +6,60 @@ function parseDate(input) {
 
 $(document).ready(function() {
     $("#links").css("color", "black");
-    $("#analyze").css("color", "lightgrey");
-    $("#bookmark").css("color", "lightgrey");
-    $("#analytics").hide();
-    $("#bookmarked").hide();
+    $("#analyze, #bookmark").css("color", "lightgrey");
+    $("#analytics, #bookmarked").hide();
     if (typeof localStorage['extdata'] == 'undefined') {
         var list = [];
         localStorage.setItem('extdata', JSON.stringify(list));
     }
     var a = JSON.parse(localStorage.getItem('extdata'));
-    var p = 0;
-    var d = "<table class='table'><thead><tr><th>#</th><th>Title</th><th>Date</th></tr></thead><tbody>";
+    var it = 0;
+    var innerhtml = "<table class='table'><thead><tr><th>#</th><th>Title</th><th>Date</th></tr></thead><tbody>";
     for (var i = a.length - 1; i >= 0; i--) {
         var time = a[i]['stamp'];
         time = time.substring(0, time.length - 7);
         time = time.split("-");
         var final_time = time[2]+"-"+time[1]+"-"+time[0];
-        p++;
-        d += "<tr><td>" + p + "</td><td><a href='" + a[i]['url'] + "' target='_blank'>" + a[i]['title'] + "</a></td><td style='width:150px;'>" + final_time + "</td></tr>";
+        it++;
+        innerhtml += "<tr><td>" + it + "</td><td><a href='" + a[i]['url'] + "' target='_blank'>" + a[i]['title'] + "</a></td><td style='width:150px;'>" + final_time + "</td></tr>";
     }
-    d += "</tbody></table>";
-    $("#content").html(d);
+    innerhtml += "</tbody></table>";
+    $("#content").html(innerhtml);
     if (typeof localStorage['bookmark'] == 'undefined') {
         var list = [];
         localStorage.setItem('bookmark', JSON.stringify(list));
     }
     var a = JSON.parse(localStorage.getItem('bookmark'));
-    var p = 0;
-    var d = "<table class='table'><thead><tr><th>#</th><th>Title</th><th>Date</th></tr></thead><tbody>";
+    it = 0;
+    var innerhtml = "<table class='table'><thead><tr><th>#</th><th>Title</th><th>Date</th></tr></thead><tbody>";
     for (var i = a.length - 1; i >= 0; i--) {
         var time = a[i]['stamp'];
         time = time.substring(0, time.length - 7);
         time = time.split("-");
         var final_time = time[2]+"-"+time[1]+"-"+time[0];
-        p++;
-        d += "<tr><td>" + p + "</td><td><a href='" + a[i]['url'] + "' target='_blank'>" + a[i]['title'] + "</a></td><td style='width:150px;'>" + final_time + "</td></tr>";
+        it++;
+        innerhtml += "<tr><td>" + it + "</td><td><a href='" + a[i]['url'] + "' target='_blank'>" + a[i]['title'] + "</a></td><td style='width:150px;'>" + final_time + "</td></tr>";
     }
-    d += "</tbody></table>";
-    $("#bookmarked").html(d);
+    innerhtml += "</tbody></table>";
+    $("#bookmarked").html(innerhtml);
 });
 $(document).on("click", "#links", function() {
     $("#links").css("color", "black");
-    $("#analyze").css("color", "lightgrey");
-    $("#bookmark").css("color", "lightgrey");
-    $("#analytics").hide();
-    $("#bookmarked").hide();
+    $("#analyze, #bookmark").css("color", "lightgrey");
+    $("#analytics, #bookmarked").hide();
     $("#content").show();
+});
+
+$(document).on("click", "#bookmark", function() {
+    $("#links, #analyze").css("color", "lightgrey");
+    $("#bookmark").css("color", "black");
+    $("#analytics, #content").hide();
+    $("#bookmarked").show();
 });
 $(document).on("click", "#analyze", function() {
     $("#analyze").css("color", "black");
-    $("#links").css("color", "lightgrey");
-    $("#bookmark").css("color", "lightgrey");
-    $("#content").hide();
-    $("#bookmarked").hide();
+    $("#links, #bookmark").css("color", "lightgrey");
+    $("#content, #bookmarked").hide();
     $("#analytics").show();
     var a = JSON.parse(localStorage.getItem('extdata'));
     var count = {};
@@ -109,13 +110,4 @@ $(document).on("click", "#analyze", function() {
             data: arr
         }]
     });
-});
-
-$(document).on("click", "#bookmark", function() {
-    $("#links").css("color", "lightgrey");
-    $("#analyze").css("color", "lightgrey");
-    $("#bookmark").css("color", "black");
-    $("#analytics").hide();
-    $("#content").hide();
-    $("#bookmarked").show();
 });
