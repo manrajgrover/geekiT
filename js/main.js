@@ -20,9 +20,7 @@ function add(link, title) {
     var month = x.getMonth() + 1;
     var date = x.getDate();
     var time = year + '-' + month + '-' + date + ' 0:00PM';
-    if (title == "") {
-        title = "GeeksForGeeks";
-    }
+    title = (title == "" ? "GeeksForGeeks" : title);
     var a = JSON.parse(localStorage.getItem('geekiT'));
     if (a.filter(function(obj) {
             return obj.url == link
@@ -62,9 +60,7 @@ function addBookmark(link, title) {
     var month = x.getMonth() + 1;
     var date = x.getDate();
     var time = year + '-' + month + '-' + date + ' 0:00PM';
-    if (title == "") {
-        title = "GeeksForGeeks";
-    }
+    title = (title == "" ? "GeeksForGeeks" : title);
     var a = JSON.parse(localStorage.getItem('bookmark'));
     if (a.filter(function(obj) {
             return obj.url == link
@@ -93,14 +89,10 @@ function bookmarkHelper() {
 function check() {
     var topFixed = $('#topfixed');
     if ($('#geekiT').prop('checked')) {
-        topFixed.removeClass('notdone');
-        topFixed.addClass('done');
-        topFixed.text('DONE');
+        topFixed.removeClass('notdone').addClass('done').text('DONE');
         add(document.URL, $(document).find("title").text());
     } else {
-        topFixed.removeClass('done');
-        topFixed.addClass('notdone');
-        topFixed.text('NOT DONE');
+        topFixed.removeClass('done').addClass('notdone').text('NOT DONE');
         remove(document.URL);
     }
 }
@@ -113,8 +105,10 @@ function cutLinks() {
         if (a.filter(function(obj) {
                 return obj.url == link
             }).length > 0) {
-            $(this).css("color", "#006600");
-            $(this).css("text-decoration", "line-through");
+            $(this).css({
+                "color": "#006600",
+                "text-decoration": "line-through"
+            });
         }
     });
 }
@@ -126,27 +120,22 @@ function bookmarkLinks() {
         if (a.filter(function(obj) {
                 return obj.url == link
             }).length > 0) {
-            $(this).css("color", "#CC0000");
-            $(this).css("font-weight", "bold");
+            $(this).css({
+                "color": "#CC0000",
+                "font-weight": "bold"
+            });
         }
     });
 }
 
 $(document).ready(function() {
+
     if (typeof localStorage['geekiT'] == 'undefined') {
-        var list = [];
-        localStorage.setItem('geekiT', JSON.stringify(list));
+        localStorage.setItem('geekiT', JSON.stringify([]));
     }
     if (typeof localStorage['bookmark'] == 'undefined') {
-        var list = [];
-        localStorage.setItem('bookmark', JSON.stringify(list));
+        localStorage.setItem('bookmark', JSON.stringify([]));
     }
-    $(document).on('click', '#geekiT', function() {
-        check();
-    });
-    $(document).on('click', '#bk', function() {
-        bookmarkHelper();
-    });
 
     var a = JSON.parse(localStorage.getItem('geekiT'));
     var send = localStorage.getItem('geekiT');
@@ -177,11 +166,8 @@ $(document).ready(function() {
             var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span>? <input id='bk' name='bk' type='checkbox'/></div>";
         }
 
-        $("body").append(geeked);
-        $("body").append("<div id='geekbox'></div>");
-        $("#geekbox").append(div);
-        $("#geekbox").append(bk);
-        $("#geekiT").show();
+        $("body").append(geeked).append("<div id='geekbox'></div>");
+        $("#geekbox").append(div).append(bk).show();
         $("#bk").show();
     }
     cutLinks();
@@ -195,4 +181,10 @@ $(document).ready(function() {
         method: "setBookmark",
         newData: bookmark
     });
+});
+$(document).on('click', '#geekiT', function() {
+    check();
+});
+$(document).on('click', '#bk', function() {
+    bookmarkHelper();
 });
