@@ -1,4 +1,5 @@
 # geekiT
+[![Chrome Web Store](https://img.shields.io/chrome-web-store/v/fbbpfmfobkcdfcninfpanleekcjbdkin.svg?maxAge=2592000)](https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin) [![Chrome Web Store](https://img.shields.io/chrome-web-store/d/fbbpfmfobkcdfcninfpanleekcjbdkin.svg?maxAge=2592000)](https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin) [![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/fbbpfmfobkcdfcninfpanleekcjbdkin.svg?maxAge=2592000)](https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin)
 
 Google Chrome extension to mark problems solved on GeeksForGeeks.org so as to focus on unsolved problems. Also view your analysis.
 
