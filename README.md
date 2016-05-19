@@ -9,6 +9,12 @@ Google Chrome extension to mark problems solved on GeeksForGeeks.org so as to fo
 
 [ ![Chrome Web Store](https://github.com/ManrajGrover/geekiT/blob/master/assets/ChromeWebStore.png) ](https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin)
 
+Or manually:
+
+1. Download or clone it using `git clone https://github.com/ManrajGrover/geekiT.git`.
+2. Click on Settings and open Extension's tab.
+3. Click on the Load unpacked extension button and select the downloaded directory.
+
 
 ## License
 
