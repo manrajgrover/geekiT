@@ -7,7 +7,7 @@ Google Chrome extension to mark problems solved on GeeksForGeeks.org so as to fo
 
 ## Installation
 
-[ ![Logo](https://github.com/ManrajGrover/geekiT/blob/master/assets/ChromeWebStore.png) ]((https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin))
+[ ![Chrome Web Store](https://github.com/ManrajGrover/geekiT/blob/master/assets/ChromeWebStore.png) ](https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin)
 
 
 ## License
