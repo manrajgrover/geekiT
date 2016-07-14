@@ -7,9 +7,14 @@ Google Chrome extension to mark problems solved on GeeksForGeeks.org so as to fo
 
 ## Installation
 
-1. Go to Chrome Store and search "geekiT" or use this [link](https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin)
-2. Click on "Add to Chrome"
-3. That's it!
+[ ![Chrome Web Store](https://github.com/ManrajGrover/geekiT/blob/master/assets/ChromeWebStore.png) ](https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin)
+
+Or manually:
+
+1. Download or clone it using `git clone https://github.com/ManrajGrover/geekiT.git`.
+2. Click on Settings and open Extension's tab.
+3. Click on the Load unpacked extension button and select the downloaded directory.
+
 
 ## License
 
