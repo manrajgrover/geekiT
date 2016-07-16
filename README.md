@@ -1,4 +1,4 @@
-<img src="https://github.com/ManrajGrover/geekiT/blob/master/assets/logo.png" align="center" />
+<p align="center"><img src="https://github.com/ManrajGrover/geekiT/blob/master/assets/logo.png" /></p>
 
 # geekiT
 [![Chrome Web Store](https://img.shields.io/chrome-web-store/v/fbbpfmfobkcdfcninfpanleekcjbdkin.svg?maxAge=2592000)](https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin) [![Chrome Web Store](https://img.shields.io/chrome-web-store/d/fbbpfmfobkcdfcninfpanleekcjbdkin.svg?maxAge=2592000)](https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin) [![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/fbbpfmfobkcdfcninfpanleekcjbdkin.svg?maxAge=2592000)](https://chrome.google.com/webstore/detail/geekit/fbbpfmfobkcdfcninfpanleekcjbdkin)
