@@ -1,3 +1,7 @@
+/**
+ * Removes geekiT link from `geekiT` localStorage 
+ * @param  {[string]} link [Link to be deleted]
+ */
 function remove(link) {
   var a = JSON.parse(localStorage.getItem('geekiT'));
   if (a.filter(function(obj) {
@@ -14,6 +18,11 @@ function remove(link) {
   });
 }
 
+/**
+ * Adds geekiT link with title to `geekiT` localStorage
+ * @param {[string]} link  [Unique link to be added]
+ * @param {[string]} title [Title of the page link]
+ */
 function add(link, title) {
   var x = new Date();
   var year = x.getFullYear();
@@ -38,6 +47,10 @@ function add(link, title) {
   });
 }
 
+/**
+ * Removes bookmarked link from `bookmark` localStorage
+ * @param  {[string]} link [Link to be removed]
+ */
 function removeBookmark(link) {
   var a = JSON.parse(localStorage.getItem('bookmark'));
   if (a.filter(function(obj) {
@@ -54,6 +67,11 @@ function removeBookmark(link) {
   });
 }
 
+/**
+ * Adds bookmarked link to `bookmark` localStorage
+ * @param {[string]} link  [Unique link to be bookmarked]
+ * @param {[string]} title [Title of link provided]
+ */
 function addBookmark(link, title) {
   var x = new Date();
   var year = x.getFullYear();
@@ -78,6 +96,9 @@ function addBookmark(link, title) {
   });
 }
 
+/**
+ * Bookmark helper function that calls respective functions based on state
+ */
 function bookmarkHelper() {
   if ($('#bk').prop('checked')) {
     addBookmark(document.URL, $(document).find("title").text());
@@ -86,6 +107,9 @@ function bookmarkHelper() {
   }
 }
 
+/**
+ * geekiT helper function that calls respective functions based on state
+ */
 function check() {
   var topFixed = $('#topfixed');
   if ($('#geekiT').prop('checked')) {
@@ -97,7 +121,9 @@ function check() {
   }
 }
 
-
+/**
+ * Function that cuts links on page based on geekiT storage
+ */
 function cutLinks() {
   var a = JSON.parse(localStorage["geekiT"]);
   $(".site-content a,#post a").each(function() {
@@ -113,6 +139,9 @@ function cutLinks() {
   });
 }
 
+/**
+ * Function that marks links on page as red based on `bookmark` storage
+ */
 function bookmarkLinks() {
   var a = JSON.parse(localStorage["bookmark"]);
   $(".site-content a,#post a").each(function() {
