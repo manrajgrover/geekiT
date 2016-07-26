@@ -29,13 +29,13 @@ body {
   border-right: 0; 
   border-radius: 0 3px 3px 0; 
 }
-#content,#bookmarked {
+#content, #bookmarked {
   overflow-y: auto;
 }
 #tabs {
   width: 300px;
 }
-#links,#bookmark,#analyze{
+#links, #bookmark, #analyze{
   width: 169px;
   height: 50px;
   text-align: center;
