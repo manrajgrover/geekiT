@@ -1,62 +1,51 @@
-.cut { 
-  text-decoration: line-through; 
-} 
-.notdone { 
-  background:red; 
-} 
+#geekbox, .ui {
+  top: 30%;
+  right: 0;
+  color: #000;
+  border-radius: 3px;
+  font-size: 20px;
+  cursor: pointer;
+  font-weight: 900;
+}
+#topfixed, .ui {
+  padding: 5px 10px
+}
+#geekbox, #topfixed, .ui {
+  height: auto;
+  z-index: 9999;
+  font-family: Open Sans, sans-serif;
+}
+.cut {
+  text-decoration: line-through;
+}
+.notdone {
+  background: red;
+}
 .done {
-  background:green; 
+  background: green;
 }
-.ui { 
-  padding: 5px 10px; 
-  height: auto; 
-  top: 30%; 
-  right: 0%; 
-  z-index: 9999; 
-  color: black; 
-  border-radius: 3px; 
-  font-size: 20px; 
-  cursor:pointer; 
-  font-weight: 900; 
-  font-family: Open Sans, sans-serif; 
-  width: 100px; 
-  border: 1px solid black; 
-} 
-#geekbox { 
-  padding: 5px; 
-  height: auto; 
-  position: fixed; 
-  top: 30%; 
-  right: 0%; 
-  z-index: 9999; 
-  color: black; 
-  border-radius: 3px; 
-  font-size: 20px; 
-  cursor: pointer; 
-  font-weight: 900; 
-  font-family: Open Sans, sans-serif; 
-  width: 150px; 
-  border: 1px solid black; 
+.ui {
+  width: 100px;
+  border: 1px solid #000;
 }
-#topfixed { 
-  padding: 5px 10px; 
-  height: auto; 
-  position: fixed; 
-  top: 0%; 
-  z-index: 9999; 
-  color: white; 
-  border-radius: 3px; 
-  font-size: 20px; 
-  font-family: Open Sans, sans-serif; 
-  width: 100px; 
-  border: 1px solid black; 
-  width: 178px; 
-  text-align: center; 
-  font-weight: bold; 
-  font-size: 28px; 
-  right:42%; 
-} 
-
-#geekiT, #bk{
+#geekbox {
+  padding: 5px;
+  position: fixed;
+  width: 150px;
+  border: 1px solid #000;
+}
+#topfixed {
+  position: fixed;
+  top: 0;
+  color: #fff;
+  border-radius: 3px;
+  border: 1px solid #000;
+  width: 178px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 28px;
+  right: 42%;
+}
+#bk, #geekiT {
   display: inline-block;
 }
