@@ -178,10 +178,10 @@ $(document).ready(function() {
         return obj.url == link
       }).length > 0) {
       var geeked = '<div id="topfixed" class="done">DONE</div>';
-      var div = "<div id='ui'>geek<span style='color:red;'>iT</span>? <input id='geekiT' name='geekiT' type='checkbox' checked='true' /></div>";
+      var div = "<div id='ui'>geek<span style='color:red;'>iT</span> <input id='geekiT' name='geekiT' type='checkbox' checked='true' /></div>";
     } else {
       var geeked = '<div id="topfixed" class="notdone">NOT DONE</div>';
-      var div = "<div id='ui'>geek<span style='color:red;'>iT</span>? <input id='geekiT' name='geekiT' type='checkbox'/></div>";
+      var div = "<div id='ui'>geek<span style='color:red;'>iT</span> <input id='geekiT' name='geekiT' type='checkbox'/></div>";
     }
     var a = JSON.parse(localStorage.getItem('bookmark'));
     var bookmark = localStorage.getItem('bookmark');
@@ -189,9 +189,9 @@ $(document).ready(function() {
     if (a.filter(function(obj) {
         return obj.url == link
       }).length > 0) {
-      var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span>? <input id='bk' name='bk' type='checkbox' checked='true' /></div>";
+      var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span> <input id='bk' name='bk' type='checkbox' checked='true' /></div>";
     } else {
-      var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span>? <input id='bk' name='bk' type='checkbox'/></div>";
+      var bk = "<div id='ui'>bookmark<span style='color:red;'>iT</span> <input id='bk' name='bk' type='checkbox'/></div>";
     }
 
     $("body").append(geeked).append("<div id='geekbox'></div>");

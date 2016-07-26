@@ -37,7 +37,7 @@
   font-family: Open Sans, sans-serif; 
   width: 150px; 
   border: 1px solid black; 
-} 
+}
 #topfixed { 
   padding: 5px 10px; 
   height: auto; 
@@ -56,3 +56,7 @@
   font-size: 28px; 
   right:42%; 
 } 
+
+#geekiT, #bk{
+  display: inline-block;
+}
