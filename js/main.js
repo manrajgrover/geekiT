@@ -24,10 +24,7 @@ function remove(link) {
  * @param {[string]} title [Title of the page link]
  */
 function add(link, title) {
-  var x = new Date();
-  var year = x.getFullYear();
-  var month = x.getMonth() + 1;
-  var date = x.getDate();
+  var x = new Date(), year = x.getFullYear(), x.getMonth() + 1, date = x.getDate();
   var time = year + '-' + month + '-' + date + ' 0:00PM';
   title = (title == "" ? "GeeksForGeeks" : title);
   var a = JSON.parse(localStorage.getItem('geekiT'));
@@ -73,10 +70,7 @@ function removeBookmark(link) {
  * @param {[string]} title [Title of link provided]
  */
 function addBookmark(link, title) {
-  var x = new Date();
-  var year = x.getFullYear();
-  var month = x.getMonth() + 1;
-  var date = x.getDate();
+  var x = new Date(), year = x.getFullYear(), month = x.getMonth() + 1, date = x.getDate();
   var time = year + '-' + month + '-' + date + ' 0:00PM';
   title = (title == "" ? "GeeksForGeeks" : title);
   var a = JSON.parse(localStorage.getItem('bookmark'));
