@@ -3,12 +3,13 @@
  * @return {[string]} [formatted date]
  */
 function formattedDate(){
-  var x = new Date(), year = x.getFullYear(), x.getMonth() + 1, date = x.getDate();
+  var x = new Date();
+  var year = x.getFullYear(), month=x.getMonth() + 1, date = x.getDate();
   return (year + '-' + month + '-' + date + ' 0:00PM');
 }
 
 /**
- * Removes geekiT link from `geekiT` localStorage 
+ * Removes geekiT link from `geekiT` localStorage
  * @param  {[string]} link [Link to be deleted]
  */
 function remove(link) {
