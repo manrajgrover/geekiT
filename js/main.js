@@ -3,7 +3,8 @@
  * @return {[string]} [formatted date]
  */
 function formattedDate(){
-  var x = new Date(), year = x.getFullYear(), x.getMonth() + 1, date = x.getDate();
+  var x = new Date();
+  year = x.getFullYear(), x.getMonth() + 1, date = x.getDate();
   return (year + '-' + month + '-' + date + ' 0:00PM');
 }
 
